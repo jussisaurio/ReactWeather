@@ -19,7 +19,11 @@ var Main = (props) => {
 	return (
 		<div>
 		<Nav/>
+		<div className="row">
+		<div className="small-12 medium-8 large-4 columns small-centered"> {/*small- attributes scale to all sizes*/}
 		{props.children}
+		</div>
+		</div>
 		</div>
 	);
 };
