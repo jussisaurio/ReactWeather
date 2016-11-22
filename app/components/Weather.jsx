@@ -6,6 +6,8 @@ var openWeatherMap = require('openWeatherMap');
 var Weather = React.createClass({
 	
 	getInitialState: function() {
+		
+		// if (this.props && this.props.params.city) {this.handleSearch(this.props.params.city);}
 		return {
 			isLoading: false
 		};

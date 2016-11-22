@@ -14,7 +14,7 @@ var WeatherResult = React.createClass({
 		var temp = this.props.temp;
 		var country = this.props.country;
 		return(
-			<div><h4>The temperature in {city}, {country} is {temp} degrees :D</h4></div>
+			<div><h4 className="text-center">The temperature in {city}, {country} is {temp} degrees :D</h4></div>
 		);
 	}
 });
