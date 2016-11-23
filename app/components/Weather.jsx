@@ -6,6 +6,21 @@ var ErrorModal = require('ErrorModal');
 
 var Weather = React.createClass({
 	
+	componentDidMount: function(){
+
+		var city = this.props.location.query.city;
+
+		if (city && city.length>0) this.handleSearch(city);
+		window.location.hash='/';
+	},
+
+	componentWillReceiveProps: function(newProps){
+		var city = newProps.location.query.city;
+
+		if (city && city.length>0) this.handleSearch(city);
+		window.location.hash='/';
+	},
+
 	getInitialState: function() {
 		
 		// if (this.props && this.props.params.city) {this.handleSearch(this.props.params.city);}
@@ -18,7 +33,10 @@ var Weather = React.createClass({
 		var parent=this;
 		this.setState({
 			isLoading: true,
-			errorMessage: undefined
+			errorMessage: undefined,
+			city: undefined,
+			country: undefined,
+			temp: undefined
 		});
 
 		openWeatherMap.getTemp(city).then(function(info){
@@ -44,7 +62,7 @@ var Weather = React.createClass({
 
 		function renderResult(){
 			if (isLoading) {
-				return <h3>Loading...</h3>;
+				return <div className="loader"/>;
 			}
 			else if (temp && city && country) {
 				return <WeatherResult city={city} country={country} temp={temp}/>;
@@ -62,7 +80,7 @@ var Weather = React.createClass({
 		
 		return(
 			<div>
-			<h1 className="text-center">Get Weather</h1>
+			<h1 className="text-center page-title">Get Weather</h1>
 			<WeatherForm onSearch={this.handleSearch}/>
 			{renderResult()}
 			{renderError()}

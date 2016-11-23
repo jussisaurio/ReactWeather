@@ -1,0 +1,40 @@
+$space-large: 2.5rem;
+$input-curve: 1rem;
+$loader-spinspeed: 0.35s;
+$themecolor: darkblue;
+
+.page-title {
+
+	margin-top: $space-large;
+	margin-bottom: $space-large;
+	color: $themecolor;
+}
+
+input[type=search] {
+
+	border-radius: $input-curve;
+}
+
+button[type=submit] {
+
+	background: $themecolor;
+	border-radius: $input-curve;
+}
+
+.loader {
+
+	border: 6px solid #aaaaaa;
+	border-top: 6px solid $themecolor;
+	border-bottom: 8px solid $themecolor;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	animation: spin $loader-spinspeed linear infinite;
+	margin:auto;
+}
+
+@keyframes spin {
+
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
