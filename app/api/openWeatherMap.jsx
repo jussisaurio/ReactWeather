@@ -10,8 +10,8 @@ module.exports = {
 
 		var encodedCity = encodeURIComponent(city);
 		var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedCity}`;
-
 		return axios.get(requestUrl).then(function(res){
+			debugger;
 			if(res.data.cod && res.data.message) {
 				throw new Error (res.data.message);
 			}
@@ -21,7 +21,7 @@ module.exports = {
 			}
 
 		}, function(err){
-			throw new Error(err.data.message);
+			throw new Error ("Not found. Make sure not to type in a stupid-ass nonexistent city, and maybe that'll help =)");
 		});
 	}
 }
