@@ -1,7 +1,7 @@
 var axios = require('axios');
 
-// convention
-const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?appid=508609b1a7e39820e2a689182d1a2306&units=metric&';
+// cors anywhere fixes the problem where the program didnt work from a HTTPS location
+const OPEN_WEATHER_MAP_URL = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?appid=508609b1a7e39820e2a689182d1a2306&units=metric&';
 
 // http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&appid=508609b1a7e39820e2a689182d1a2306
 module.exports = {
